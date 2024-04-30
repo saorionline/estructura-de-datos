@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class MyArray {
+            constructor() {
+                this.length = 0;
+                this.data = {};
+            }
+            get(index) {
+                return this.data[index];
+            }
+            push(item) {
+                this.data[this.length] = item;
+                this.length++;
+                return this.data;
+            }
+        }
+
+        const myArray = new MyArray();
+
+        myArray.push('Estructura de Datos');
+        myArray.push('Memoria de Datos');
+
+        const app = document.getElementById('app');
+        for(let i = 0; i < myArray.length ; i++){
+            app.innerHTML += `<li>${myArray.get(i)}</li>`;
+        }
+    </script>
+</body>
+</html>
